@@ -24,6 +24,8 @@ xcodebuild -project IntelBluetoothFirmware.xcodeproj -target IntelBluetoothFirmw
 ## 2. IntelBluetoothInjector.kext
 xcodebuild -project IntelBluetoothFirmware.xcodeproj -target IntelBluetoothInjector -configuration Release -sdk macosx
 
+xcodebuild -project IntelBluetoothFirmware.xcodeproj -target IntelBTPatcher -configuration Release -sdk macosx
+
 # Location of Kexts
 echo "You kexts are in build/Release!!"
 echo " "
