@@ -40,13 +40,9 @@ jobs:
         fi
         cp -R build/Debug/Lilu.kext ../
 
-    - name: Debug Build
-      run: |
-        xcodebuild -alltargets -configuration Debug | xcpretty && exit ${PIPESTATUS[0]}
-
     - name: Release Build
       run: |
-        xcodebuild -alltargets -configuration Release | xcpretty && exit ${PIPESTATUS[0]}
+        ./clean-build.command | xcpretty && exit ${PIPESTATUS[0]}
 
     - name: Upload to Artifacts
       uses: actions/upload-artifact@v3
