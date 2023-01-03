@@ -3,6 +3,17 @@
 # remove all local changes
 git reset --hard HEAD
 rm -rf build
+rm -rf MacKernelSDK
+
+git clone --depth=1 https://github.com/acidanthera/MacKernelSDK.git
+
+git clone --depth=1 https://github.com/acidanthera/Lilu.git
+cd Lilu || exit 1
+ln -s ../MacKernelSDK MacKernelSDK
+xcodebuild -configuration Debug -arch x86_64
+[ ! -d build/Debug/Lilu.kext ] && exit 1
+cp -R build/Debug/Lilu.kext ../
+cd ../
 
 # pull latest code
 git pull
