@@ -40,9 +40,19 @@ jobs:
         fi
         cp -R build/Debug/Lilu.kext ../
 
+    - name: Delete unused firmware
+      run: |
+        rm IntelBluetoothFirmware/FwBinary.cpp  # generated firmware
+        # NOTE: My card is "ibt-11-5", change it to your card if it's different
+        find IntelBluetoothFirmware/fw/ -type f ! -name 'ibt-11-5*' -delete
+
+    - name: Debug Build
+      run: |
+        xcodebuild -alltargets -configuration Debug | xcpretty && exit ${PIPESTATUS[0]}
+
     - name: Release Build
       run: |
-        ./clean-build.command | xcpretty && exit ${PIPESTATUS[0]}
+        xcodebuild -alltargets -configuration Release | xcpretty && exit ${PIPESTATUS[0]}
 
     - name: Upload to Artifacts
       uses: actions/upload-artifact@v4
