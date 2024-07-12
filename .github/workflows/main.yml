@@ -42,7 +42,7 @@ jobs:
 
     - name: Delete unused firmware
       run: |
-        rm IntelBluetoothFirmware/FwBinary.cpp  # generated firmware
+        rm -f IntelBluetoothFirmware/FwBinary.cpp  # generated firmware
         # NOTE: My card is "ibt-11-5", change it to your card if it's different
         find IntelBluetoothFirmware/fw/ -type f ! -name 'ibt-11-5*' -delete
 
