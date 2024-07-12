@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This repo is used to build stripped down version of `IntelBluetoothFirmware` for my specific wireless card, check out the [original repo](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) instead!
+
 # IntelBluetoothFirmware
 
 ![CI](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/workflows/CI/badge.svg)
