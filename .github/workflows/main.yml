@@ -74,7 +74,7 @@ jobs:
         if-no-files-found: error
 
     - name: Delete Old Prerelease
-      if: github.event_name != 'pull_request'
+      if: github.event_name != 'pull_request' && env.OLD_PRE_TAG != 'NULL'
       run: |
         gh release delete ${{ env.OLD_PRE_TAG }} --cleanup-tag
       env:
